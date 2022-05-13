@@ -5,6 +5,7 @@ import {
     // faAngry
 } from "@fortawesome/free-regular-svg-icons";
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const MainContainer = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;  // 계속 해줘야하나??
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -73,7 +74,30 @@ const Button = styled.input` // 왜 button이 아닐까?
   }
 `;
 
+const FormError = styled.div`
+  color: red;
+  font-size: 12px;
+`
+
 function Login() {
+    const {
+        register,
+        watch,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
+        mode: "onChange",
+    });
+
+    console.log(watch());
+    console.log(errors);
+    const onSubmitValid = () => {
+        const { username, password } = getValues();
+        // console.log(username);
+        // console.log(password);
+    };
+
     return(
         <MainContainer>
             <Wrapper>
@@ -81,17 +105,33 @@ function Login() {
                     <div  style={{'color' : 'white'}}>
                         <FontAwesomeIcon icon={faMoon} size="6x" />
                     </div>
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmitValid)}>
                         <Input
+                            {...register("username", {
+                                required: "username is required!",
+                                minLength: {
+                                    value: 5,
+                                    message: "Username must be longer than 5 charaters"
+                                }
+                            })}
                             name="username"
                             type="text"
                             placeholder="Username"
                         />
+                        <FormError>{errors?.username?.message}</FormError>
                         <Input
+                            {...register( "password", {
+                                required: "password is required!",
+                                minLength: {
+                                    value: 4,
+                                    message: "Password must be longer than 4 charaters"
+                                }
+                            })}
                             name="password"
                             type="password"
                             placeholder="Password"
                         />
+                        <FormError>{errors?.password?.message}</FormError>
                         <Button
                             type="submit"
                             value="Log in"

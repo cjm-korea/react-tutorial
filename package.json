@@ -8,11 +8,21 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@prisma/client": "^3.14.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "apollo-server": "^3.7.0",
+    "apollo-server-express": "^3.7.0",
+    "body-parser-graphql": "^1.1.0",
+    "compression": "^1.7.4",
+    "dotenv": "^16.0.1",
+    "graphql": "^16.5.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.31.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
@@ -41,5 +51,27 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "- [ ] 로그인\r - [ ] 회원가입\r - [ ] Profile 창\r - [ ] 테스트",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjm-korea/react-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjm-korea/react-tutorial/issues"
+  },
+  "homepage": "https://github.com/cjm-korea/react-tutorial#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.17.10",
+    "babel-loader": "^8.2.5",
+    "prisma": "^3.14.0"
   }
 }
